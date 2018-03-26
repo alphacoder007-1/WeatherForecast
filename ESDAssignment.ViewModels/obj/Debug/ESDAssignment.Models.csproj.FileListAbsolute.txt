@@ -2,3 +2,8 @@ c:\users\mshivaswamy\documents\visual studio 2017\Projects\ESDAssignment\ESDAssi
 c:\users\mshivaswamy\documents\visual studio 2017\Projects\ESDAssignment\ESDAssignment.ViewModels\bin\Debug\ESDAssignment.Models.pdb
 c:\users\mshivaswamy\documents\visual studio 2017\Projects\ESDAssignment\ESDAssignment.ViewModels\obj\Debug\ESDAssignment.Models.dll
 c:\users\mshivaswamy\documents\visual studio 2017\Projects\ESDAssignment\ESDAssignment.ViewModels\obj\Debug\ESDAssignment.Models.pdb
+C:\P\WeatherForeCast\ESDAssignment\ESDAssignment.ViewModels\bin\Debug\ESDAssignment.Models.dll
+C:\P\WeatherForeCast\ESDAssignment\ESDAssignment.ViewModels\bin\Debug\ESDAssignment.Models.pdb
+C:\P\WeatherForeCast\ESDAssignment\ESDAssignment.ViewModels\obj\Debug\ESDAssignment.Models.csprojResolveAssemblyReference.cache
+C:\P\WeatherForeCast\ESDAssignment\ESDAssignment.ViewModels\obj\Debug\ESDAssignment.Models.dll
+C:\P\WeatherForeCast\ESDAssignment\ESDAssignment.ViewModels\obj\Debug\ESDAssignment.Models.pdb
