@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESDAssignment.API", "ESDAssignment.API\ESDAssignment.API.csproj", "{52DB2D97-1932-4B21-808D-8666C78B3745}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESDAssignment.Models", "ESDAssignment.ViewModels\ESDAssignment.Models.csproj", "{DE2243C9-5C78-445C-9DBC-D6879F80D717}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ESDAssignment.Web", "ESDAssignment.Web\", "{A4E3D5A8-A44D-495B-B9AA-78A3B8F22A72}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_51110"
+		Debug.AspNetCompiler.PhysicalPath = "ESDAssignment.Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51110\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_51110"
+		Release.AspNetCompiler.PhysicalPath = "ESDAssignment.Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51110\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "51110"
+		SlnRelativePath = "ESDAssignment.Web\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESDAssignment.MVC", "ESDAssignment.MVC\ESDAssignment.MVC.csproj", "{88BB19D5-B3B4-44CD-BFB8-86EA30FFAA63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESDAssignment.MVC.Tests", "ESDAssignment.MVC.Tests\ESDAssignment.MVC.Tests.csproj", "{1DF38C08-3352-48FB-A811-2EC01D76E610}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESDAssignement.API.Tests", "ESDAssignement.API.Tests\ESDAssignement.API.Tests.csproj", "{3A7FF45D-7EA5-4053-9C21-BF89B824AAF1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52DB2D97-1932-4B21-808D-8666C78B3745}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52DB2D97-1932-4B21-808D-8666C78B3745}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52DB2D97-1932-4B21-808D-8666C78B3745}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52DB2D97-1932-4B21-808D-8666C78B3745}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE2243C9-5C78-445C-9DBC-D6879F80D717}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE2243C9-5C78-445C-9DBC-D6879F80D717}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE2243C9-5C78-445C-9DBC-D6879F80D717}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE2243C9-5C78-445C-9DBC-D6879F80D717}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4E3D5A8-A44D-495B-B9AA-78A3B8F22A72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4E3D5A8-A44D-495B-B9AA-78A3B8F22A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4E3D5A8-A44D-495B-B9AA-78A3B8F22A72}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4E3D5A8-A44D-495B-B9AA-78A3B8F22A72}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{88BB19D5-B3B4-44CD-BFB8-86EA30FFAA63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88BB19D5-B3B4-44CD-BFB8-86EA30FFAA63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88BB19D5-B3B4-44CD-BFB8-86EA30FFAA63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88BB19D5-B3B4-44CD-BFB8-86EA30FFAA63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DF38C08-3352-48FB-A811-2EC01D76E610}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DF38C08-3352-48FB-A811-2EC01D76E610}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DF38C08-3352-48FB-A811-2EC01D76E610}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DF38C08-3352-48FB-A811-2EC01D76E610}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A7FF45D-7EA5-4053-9C21-BF89B824AAF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A7FF45D-7EA5-4053-9C21-BF89B824AAF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A7FF45D-7EA5-4053-9C21-BF89B824AAF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A7FF45D-7EA5-4053-9C21-BF89B824AAF1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

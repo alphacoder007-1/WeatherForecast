@@ -1,0 +1,4 @@
+c:\users\mshivaswamy\documents\visual studio 2017\Projects\ESDAssignment\ESDAssignment.ViewModels\bin\Debug\ESDAssignment.ViewModels.dll
+c:\users\mshivaswamy\documents\visual studio 2017\Projects\ESDAssignment\ESDAssignment.ViewModels\bin\Debug\ESDAssignment.ViewModels.pdb
+c:\users\mshivaswamy\documents\visual studio 2017\Projects\ESDAssignment\ESDAssignment.ViewModels\obj\Debug\ESDAssignment.ViewModels.dll
+c:\users\mshivaswamy\documents\visual studio 2017\Projects\ESDAssignment\ESDAssignment.ViewModels\obj\Debug\ESDAssignment.ViewModels.pdb
