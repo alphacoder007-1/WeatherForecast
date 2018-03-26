@@ -109,7 +109,7 @@
                 localStorage.setItem("history", historyTmp);
             }
             else {
-                var historyTmp = data.city.Name + ", " + data.city.State;
+                var historyTmp = city + ", " + state;
                 localStorage.setItem("history", historyTmp);
             }
         }
@@ -124,8 +124,9 @@
                 type: "Get",
                 success: function (data) {
                     debugger;
+                    
                     $('#loadingmsgOne').hide();
-                    //alert(JSON.stringify(data))
+                    alert(JSON.stringify(data))
                     $('#lblCityByGeo').html(data.city.Name + ' , ' + data.city.State );
                     $('#lblPOICity').html(data.city.Name + " , " + data.city.State);
                     $('#lblWeatherForecastCity').html(data.city.Name + ' , ' + data.city.State);
