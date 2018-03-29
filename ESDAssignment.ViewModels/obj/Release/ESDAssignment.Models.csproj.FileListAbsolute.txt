@@ -1,0 +1,5 @@
+C:\P\WeatherForeCast\ESDAssignment\ESDAssignment.ViewModels\bin\Release\ESDAssignment.Models.dll
+C:\P\WeatherForeCast\ESDAssignment\ESDAssignment.ViewModels\bin\Release\ESDAssignment.Models.pdb
+C:\P\WeatherForeCast\ESDAssignment\ESDAssignment.ViewModels\obj\Release\ESDAssignment.Models.csprojResolveAssemblyReference.cache
+C:\P\WeatherForeCast\ESDAssignment\ESDAssignment.ViewModels\obj\Release\ESDAssignment.Models.dll
+C:\P\WeatherForeCast\ESDAssignment\ESDAssignment.ViewModels\obj\Release\ESDAssignment.Models.pdb

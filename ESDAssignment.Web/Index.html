@@ -61,18 +61,22 @@
                 var city = cityArray[0];
                 var state = cityArray[1];
 
-                WeatherForecastURL = "http://localhost:54308/api/Weather/GetWeatherByCity?city=" + city + "&state=" + state + "";
+                //WeatherForecastURL = "http://localhost:54308/api/Weather/GetWeatherByCity?city=" + city + "&state=" + state + "";
+                WeatherForecastURL = "http://sunshineapi.azurewebsites.net/api/Weather/GetWeatherByCity?city=" + city + "&state=" + state + "";
                 GetWeatherForecast(WeatherForecastURL);
-
-                PointOfInterestURL = "http://localhost:54308/api/Places/GetPointsOfInterests?city=" + city + "&state=" + state + "";
+                
+                //PointOfInterestURL = "http://localhost:54308/api/Places/GetPointsOfInterests?city=" + city + "&state=" + state + "";
+                PointOfInterestURL = "https://sunshineapi.azurewebsites.net/api/Places/GetPointsOfInterests?city=" + city + "&state=" + state + "";
                 GetPointsofInterest(PointOfInterestURL);
 
             }
             else {
-                WeatherForecastURL = "http://localhost:54308/api/Weather/GetWeather?latti=" + lat + "&longi=" + lon;
+                //WeatherForecastURL = "http://localhost:54308/api/Weather/GetWeather?latti=" + lat + "&longi=" + lon;
+                WeatherForecastURL = "http://sunshineapi.azurewebsites.net/api/Weather/GetWeather?latti=" + lat + "&longi=" + lon;
                 GetWeatherForecast(WeatherForecastURL);
 
-                PointOfInterestURL = "http://localhost:54308/api/Places/GetPointsOfInterests?latlong=" + lat + "," + lon
+                //PointOfInterestURL = "http://localhost:54308/api/Places/GetPointsOfInterests?latlong=" + lat + "," + lon
+                PointOfInterestURL = "http://sunshineapi.azurewebsites.net/api/Places/GetPointsOfInterests?latlong=" + lat + "," + lon
                 GetPointsofInterest(PointOfInterestURL);
             }
 
@@ -126,7 +130,7 @@
                     debugger;
                     
                     $('#loadingmsgOne').hide();
-                    alert(JSON.stringify(data))
+                    //alert(JSON.stringify(data))
                     $('#lblCityByGeo').html(data.city.Name + ' , ' + data.city.State );
                     $('#lblPOICity').html(data.city.Name + " , " + data.city.State);
                     $('#lblWeatherForecastCity').html(data.city.Name + ' , ' + data.city.State);
@@ -266,13 +270,14 @@
 
 
     </script>
+
 </head>
 <body>
 
     <div class="well well-sm">
         <div class="container">
-            <h2>Employment Security Department</h2>
-            <h4>Washington, USA</h4>
+            <h2>Sunshine Weather Forecasting</h2>
+            <h4>California, USA</h4>
         </div>
     </div>
     <div class="container">
