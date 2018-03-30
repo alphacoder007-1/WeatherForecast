@@ -62,7 +62,7 @@
                 var state = cityArray[1];
 
                 //WeatherForecastURL = "http://localhost:54308/api/Weather/GetWeatherByCity?city=" + city + "&state=" + state + "";
-                WeatherForecastURL = "http://sunshineapi.azurewebsites.net/api/Weather/GetWeatherByCity?city=" + city + "&state=" + state + "";
+                WeatherForecastURL = "https://sunshineapi.azurewebsites.net/api/Weather/GetWeatherByCity?city=" + city + "&state=" + state + "";
                 GetWeatherForecast(WeatherForecastURL);
                 
                 //PointOfInterestURL = "http://localhost:54308/api/Places/GetPointsOfInterests?city=" + city + "&state=" + state + "";
@@ -72,11 +72,11 @@
             }
             else {
                 //WeatherForecastURL = "http://localhost:54308/api/Weather/GetWeather?latti=" + lat + "&longi=" + lon;
-                WeatherForecastURL = "http://sunshineapi.azurewebsites.net/api/Weather/GetWeather?latti=" + lat + "&longi=" + lon;
+                WeatherForecastURL = "https://sunshineapi.azurewebsites.net/api/Weather/GetWeather?latti=" + lat + "&longi=" + lon;
                 GetWeatherForecast(WeatherForecastURL);
 
                 //PointOfInterestURL = "http://localhost:54308/api/Places/GetPointsOfInterests?latlong=" + lat + "," + lon
-                PointOfInterestURL = "http://sunshineapi.azurewebsites.net/api/Places/GetPointsOfInterests?latlong=" + lat + "," + lon
+                PointOfInterestURL = "https://sunshineapi.azurewebsites.net/api/Places/GetPointsOfInterests?latlong=" + lat + "," + lon
                 GetPointsofInterest(PointOfInterestURL);
             }
 
