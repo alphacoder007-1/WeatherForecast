@@ -142,7 +142,12 @@
 
                         console.log(JSON.stringify(data));
                         //alert(JSON.stringify(data))
-                        $("<td> <ul> <li>" + data.weatherModel[i].weekday + " </li > <li> <img src=" + data.weatherModel[i].icon_url + " height= 42 width= 42 > </li> <li> " + data.weatherModel[i].conditions + "</li> <li>" + data.weatherModel[i].high + " / " + data.weatherModel[i].low + " </li>  </ul> </td>").appendTo("#tblWeather");
+                        var httpsurl = data.weatherModel[i].icon_url;
+
+                        httpsurl = httpsurl.replace("http", "https");
+                        console.log(httpsurl);
+
+                        $("<td> <ul> <li>" + data.weatherModel[i].weekday + " </li > <li> <img src=" + httpsurl + " height= 42 width= 42 > </li> <li> " + data.weatherModel[i].conditions + "</li> <li>" + data.weatherModel[i].high + " / " + data.weatherModel[i].low + " </li>  </ul> </td>").appendTo("#tblWeather");
                     }
                     
                 },
