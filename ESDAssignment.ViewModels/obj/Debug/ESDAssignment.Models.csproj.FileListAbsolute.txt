@@ -7,3 +7,8 @@ C:\P\WeatherForeCast\ESDAssignment\ESDAssignment.ViewModels\bin\Debug\ESDAssignm
 C:\P\WeatherForeCast\ESDAssignment\ESDAssignment.ViewModels\obj\Debug\ESDAssignment.Models.csprojResolveAssemblyReference.cache
 C:\P\WeatherForeCast\ESDAssignment\ESDAssignment.ViewModels\obj\Debug\ESDAssignment.Models.dll
 C:\P\WeatherForeCast\ESDAssignment\ESDAssignment.ViewModels\obj\Debug\ESDAssignment.Models.pdb
+C:\P\WeatherForeCast-Caching\WeatherForecast\ESDAssignment.ViewModels\bin\Debug\ESDAssignment.Models.dll
+C:\P\WeatherForeCast-Caching\WeatherForecast\ESDAssignment.ViewModels\bin\Debug\ESDAssignment.Models.pdb
+C:\P\WeatherForeCast-Caching\WeatherForecast\ESDAssignment.ViewModels\obj\Debug\ESDAssignment.Models.csprojResolveAssemblyReference.cache
+C:\P\WeatherForeCast-Caching\WeatherForecast\ESDAssignment.ViewModels\obj\Debug\ESDAssignment.Models.dll
+C:\P\WeatherForeCast-Caching\WeatherForecast\ESDAssignment.ViewModels\obj\Debug\ESDAssignment.Models.pdb

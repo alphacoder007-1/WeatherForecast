@@ -18,6 +18,7 @@ namespace ESDAssignment.API.Controllers
 
         string strPointsOfInterestsAPI = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={{latlong}}&radius=500&type=point_of_interest&key=AIzaSyB1UXBM2YIZBBZbzETM6psPtmM27R4QN0E";
 
+        string strPOIByCityAPI = "https://maps.googleapis.com/maps/api/geocode/json?address={{City}},{{State}}&key=AIzaSyB1UXBM2YIZBBZbzETM6psPtmM27R4QN0E";
         
 
         public PlacesController()
@@ -103,80 +104,55 @@ namespace ESDAssignment.API.Controllers
                 resultModelList.Add(resultModel);
             }
 
-            if (resultModelList.Count == 0)
-            {
-               
-                resultModel = new POIResultModel();
-                resultModel.name = "Mission Peak";
-                resultModel.icon = "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png";
-                resultModel.website = "http://www.google.com";
-                resultModelList.Add(resultModel);
-
-                POIResultModel resultModel1;
-                resultModel1 = new POIResultModel();
-                resultModel1.name = "Sunol Regional Wilderness";
-                resultModel1.icon = "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png";
-                resultModel1.website = "http://www.google.com";
-                resultModelList.Add(resultModel1);
-
-
-                POIResultModel resultModel2;
-                resultModel2 = new POIResultModel();
-                resultModel2.name = "Coyote Hills Regional Park";
-                resultModel2.icon = "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png";
-                resultModel2.website = "http://www.google.com";
-                resultModelList.Add(resultModel2);
-
-
-                POIResultModel resultModel3;
-                resultModel3 = new POIResultModel();
-                resultModel3.name = "Aqua Adventure";
-                resultModel3.icon = "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png";
-                resultModel3.website = "http://www.google.com";
-                resultModelList.Add(resultModel3);
-
-            }
-
             return resultModelList;
         }
 
-        public List<POIResultModel> GetPointsOfInterests(string city, string state)
+        public async Task<List<POIResultModel>> GetPointsOfInterests(string city, string state)
         {
 
+            HttpClient client = new HttpClient();
+            PointOfInterestModel pointOfInterestModel = new PointOfInterestModel();
+            HttpResponseMessage poiResponse;
+          
+
+            List<POIPlacesModel> objPOIPlacesModelList = new List<POIPlacesModel>();
+
+            strPOIByCityAPI = strPOIByCityAPI.Replace("{{City}}", city).Replace("{{State}}",state);
+
+            poiResponse = client.GetAsync(strPOIByCityAPI).Result;
+
             List<POIResultModel> resultModelList = new List<POIResultModel>();
-            POIResultModel resultModel;
-            resultModel = new POIResultModel();
-            resultModel.name = "Mission Peak";
-            resultModel.icon = "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png";
-            resultModel.website = "http://www.google.com";
-            resultModelList.Add(resultModel);
 
-            POIResultModel resultModel1;
-            resultModel1 = new POIResultModel();
-            resultModel1.name = "Sunol Regional Wilderness";
-            resultModel1.icon = "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png";
-            resultModel1.website = "http://www.google.com";
-            resultModelList.Add(resultModel1);
+            if (poiResponse.IsSuccessStatusCode)
+            {
+                POIByCityModel poiByCityModel = await poiResponse.Content.ReadAsAsync<POIByCityModel>();
 
+                List<Result> resModelList = new List<Result>();
 
-            POIResultModel resultModel2;
-            resultModel2 = new POIResultModel();
-            resultModel2.name = "Coyote Hills Regional Park";
-            resultModel2.icon = "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png";
-            resultModel2.website = "http://www.google.com";
-            resultModelList.Add(resultModel2);
+                resModelList = poiByCityModel.results;
 
+                
 
-            POIResultModel resultModel3;
-            resultModel3 = new POIResultModel();
-            resultModel3.name = "Aqua Adventure";
-            resultModel3.icon = "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png";
-            resultModel3.website = "http://www.google.com";
-            resultModelList.Add(resultModel3);
+                foreach (Result resModel in resModelList)
+                {
+                    Geometry geometry = resModel.geometry;
 
-            return resultModelList;
+                    Location loc = geometry.location;
 
-         
+                    string lat = Convert.ToString(loc.lat);
+                    string lng = Convert.ToString(loc.lng);
+
+                    string latlong = Convert.ToString(lat + ',' + lng);
+                    ////////////////
+
+                    resultModelList = await GetPointsOfInterests(latlong);
+
+                }
+                
+            }
+
+            return  resultModelList;
+
         }
 
 

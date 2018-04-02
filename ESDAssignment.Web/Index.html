@@ -32,24 +32,22 @@
                 alert("Geolocation is not supported by this browser.");
             
             }
-        }
-
-     
+        }    
 
 
         function showPosition(position) {        
             //var latlon = position.coords.latitude + "," + position.coords.longitude;
 
             lat = position.coords.latitude;
-            lon = position.coords.longitude;
+            lng = position.coords.longitude;
             //console.log(latlon);
-            console.log(lat);
-            console.log(lon);
+            //console.log(lat);
+            //console.log(lon);
 
             //alert("LAT " + lat);
             //alert("LON " + lon);
 
-            $('#lblLatLong').html(lat + " , " + lon);
+            $('#lblLatLong').html(lat + " , " + lng);
 
             var txtCity = $('#txtCity').val();
 
@@ -61,22 +59,22 @@
                 var city = cityArray[0];
                 var state = cityArray[1];
 
-                //WeatherForecastURL = "http://localhost:54308/api/Weather/GetWeatherByCity?city=" + city + "&state=" + state + "";
-                WeatherForecastURL = "http://sunshineapi.azurewebsites.net/api/Weather/GetWeatherByCity?city=" + city + "&state=" + state + "";
+                WeatherForecastURL = "http://localhost:54308/api/Weather/GetWeatherByCity?city=" + city + "&state=" + state + "";
+                //WeatherForecastURL = "http://sunshineapi.azurewebsites.net/api/Weather/GetWeatherByCity?city=" + city + "&state=" + state + "";
                 GetWeatherForecast(WeatherForecastURL);
                 
-                //PointOfInterestURL = "http://localhost:54308/api/Places/GetPointsOfInterests?city=" + city + "&state=" + state + "";
-                PointOfInterestURL = "https://sunshineapi.azurewebsites.net/api/Places/GetPointsOfInterests?city=" + city + "&state=" + state + "";
+                PointOfInterestURL = "http://localhost:54308/api/Places/GetPointsOfInterests?city=" + city + "&state=" + state + "";
+                //PointOfInterestURL = "https://sunshineapi.azurewebsites.net/api/Places/GetPointsOfInterests?city=" + city + "&state=" + state + "";
                 GetPointsofInterest(PointOfInterestURL);
 
             }
             else {
-                //WeatherForecastURL = "http://localhost:54308/api/Weather/GetWeather?latti=" + lat + "&longi=" + lon;
-                WeatherForecastURL = "http://sunshineapi.azurewebsites.net/api/Weather/GetWeather?latti=" + lat + "&longi=" + lon;
+                WeatherForecastURL = "http://localhost:54308/api/Weather/GetWeather?latti=" + lat + "&longi=" + lng;
+                //WeatherForecastURL = "http://sunshineapi.azurewebsites.net/api/Weather/GetWeather?latti=" + lat + "&longi=" + lon;
                 GetWeatherForecast(WeatherForecastURL);
 
-                //PointOfInterestURL = "http://localhost:54308/api/Places/GetPointsOfInterests?latlong=" + lat + "," + lon
-                PointOfInterestURL = "http://sunshineapi.azurewebsites.net/api/Places/GetPointsOfInterests?latlong=" + lat + "," + lon
+                PointOfInterestURL = "http://localhost:54308/api/Places/GetPointsOfInterests?latlong=" + lat + "," + lng
+                //PointOfInterestURL = "http://sunshineapi.azurewebsites.net/api/Places/GetPointsOfInterests?latlong=" + lat + "," + lon
                 GetPointsofInterest(PointOfInterestURL);
             }
 
@@ -103,20 +101,7 @@
             }
         }
 
-        function SetHistory(city, state)
-        {
-           // alert("Set History Called");
-            //Storing New result in previous History localstorage
-            if (localStorage.getItem("history") != null) {
-                var historyTmp = localStorage.getItem("history");
-                historyTmp += city + ", " + state;
-                localStorage.setItem("history", historyTmp);
-            }
-            else {
-                var historyTmp = city + ", " + state;
-                localStorage.setItem("history", historyTmp);
-            }
-        }
+       
 
         function GetWeatherForecast(url) {
             $('#tblWeather').empty();
@@ -140,7 +125,7 @@
 
                     for (var i = 0; i < data.weatherModel.length; i++) {
 
-                        console.log(JSON.stringify(data));
+                       // console.log(JSON.stringify(data));
                         //alert(JSON.stringify(data))
                         $("<td> <ul> <li>" + data.weatherModel[i].weekday + " </li > <li> <img src=" + data.weatherModel[i].icon_url + " height= 42 width= 42 > </li> <li> " + data.weatherModel[i].conditions + "</li> <li>" + data.weatherModel[i].high + " / " + data.weatherModel[i].low + " </li>  </ul> </td>").appendTo("#tblWeather");
                     }
@@ -165,7 +150,7 @@
                     $('#loadingmsgTwo').hide();
                     for (var i = 0; i < data.length; i++) {
 
-                        console.log(JSON.stringify(data));
+                        //console.log(JSON.stringify(data));
                         //alert(JSON.stringify(data))
                         $("<tr><td><ul><li><a href=" + data[i].website + ">" + data[i].name + "</a></li><li><img src=" + data[i].icon + " height= 42 width= 42 ></li></ul></td>>/tr>").appendTo("#tblPOI");
                     }
@@ -175,56 +160,68 @@
             });
         }
 
+        function SetHistory(city, state) {
+            // alert("Set History Called");
+            //Storing New result in previous History localstorage
+            if (localStorage.getItem("history") != null) {
+                var historyTmp = localStorage.getItem("history");
+                if (!historyTmp.includes(city + ", " + state))
+                {
+                    historyTmp += "|" + city + ", " + state;
+                    localStorage.setItem("history", historyTmp);
+                }
+            }
+            else {
+                var historyTmp = city + ", " + state ;
+                localStorage.setItem("history", historyTmp);
+            }
+        }
+
         function GetHistory() {
            // alert("Get History Called");
             debugger;
             //To Check and show previous results in **lastResults** div
             if (localStorage.getItem("history") != null) {
                 var historyTmp = localStorage.getItem("history");
-                var oldhistoryarray = historyTmp.split('|');
 
-                oldhistoryarray = GetUnique(oldhistoryarray);
+                console.log(historyTmp);
+
+                var oldhistoryarray = historyTmp.split('|');
 
                 //alert(oldhistoryarray);
 
                 $('#lblRecentSearches').empty();
                 //oldhistoryarray = oldhistoryarray.slice(-5);
-                for (var i = 0; i < oldhistoryarray.length; i++) {
-                    $('#lblRecentSearches').append('<p>' + oldhistoryarray[i] + '</p>');
+                
+                for (var i = oldhistoryarray.length-1; i >= 0 ; i--) {
+           
+                    $('#lblRecentSearches').append(oldhistoryarray[i] +" | ");
                 }
             }
         }
-
-        function GetUnique(inputArray) {
-            var outputArray = [];
-            for (var i = 0; i<inputArray.length; i++)
-            {
-                if ((jQuery.inArray(inputArray[i], outputArray)) == -1) {
-                    outputArray.push(inputArray[i]);
-                }
-            }
-            return outputArray;
-        }
-
     
 
         $(document).ready(function () {
 
-            $('#tblWeather').empty();
-            $('#tblPOI').empty();
-            GetHistory();
-            debugger;
-            var latti = 37.548270;
-            var longi = -121.988572;
-            var weatherByGeoURL;
-            var POIByGeoURL;
-            var weatherByCityURL;
+            //$('#tblWeather').empty();
+            //$('#tblPOI').empty();
+           
+            //debugger;
+            //var latti = 37.548270;
+            //var longi = -121.988572;
+            //var weatherByGeoURL;
+            //var POIByGeoURL;
+            //var weatherByCityURL;
 
+            GetHistory();
             getLocation();
+                      
 
             $('#btnSubmit').click(function () {
                 //alert("Button CLicked");
                 getLocation();
+                GetHistory();
+           
             })
         });
 
@@ -289,8 +286,8 @@
             </div>
             <div>
                 <hr />
-                <label id="lblGeoName" name="lblGeoName">Current Co-ordinates: </label>&nbsp;<label id="lblLatLong" name="lblLatLong">latlong</label> &nbsp; <label id="lblCityByGeo" name="lblCityByGeo">lblLocation</label><br />
-                <label id="lblSearchHistory" name="lblSearchHistory">Recent Searches: </label>&nbsp;<label id="lblRecentSearches" name="lblRecentSearches">lblRecentSearches</label>
+                <label id="lblGeoName" name="lblGeoName">Weather Location: &nbsp; <label id="lblCityByGeo" name="lblCityByGeo">Fremont, CA</label> &nbsp;</label>&nbsp;<label id="lblLatLong" name="lblLatLong">[37.55678816200741 , -121.96859231020544]</label> <br />
+                <label id="lblSearchHistory" name="lblSearchHistory">Recent Searches: </label>&nbsp;<label id="lblRecentSearches" name="lblRecentSearches"></label>
                 <hr />
             </div>
             <div>
