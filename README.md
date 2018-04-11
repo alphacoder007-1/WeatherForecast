@@ -1,5 +1,5 @@
 # WeatherForecast
-ESD Assignment for Weather Forecast
+Weather Forecast
 
 This project is hosted at the below url. Feel free to explore around
 
