@@ -111,6 +111,7 @@
             $.ajax({
                 url: url,
                 type: "Get",
+                cache: true,
                 success: function (data) {
                     debugger;
                     
@@ -145,11 +146,11 @@
             $.ajax({
                 url: url,
                 type: "Get",
+                cache: true,
                 success: function (data) {
                     debugger;
                     $('#loadingmsgTwo').hide();
                     for (var i = 0; i < data.length; i++) {
-
                         //console.log(JSON.stringify(data));
                         //alert(JSON.stringify(data))
                         $("<tr><td><ul><li><a href=" + data[i].website + ">" + data[i].name + "</a></li><li><img src=" + data[i].icon + " height= 42 width= 42 ></li></ul></td>>/tr>").appendTo("#tblPOI");
@@ -193,7 +194,7 @@
                 $('#lblRecentSearches').empty();
                 //oldhistoryarray = oldhistoryarray.slice(-5);
                 
-                for (var i = oldhistoryarray.length-1; i >= 0 ; i--) {
+                for (var i = oldhistoryarray.length-1; i > 5 ; i--) {
            
                     $('#lblRecentSearches').append(oldhistoryarray[i] +" | ");
                 }
@@ -286,14 +287,14 @@
             </div>
             <div>
                 <hr />
-                <label id="lblGeoName" name="lblGeoName">Weather Location: &nbsp; <label id="lblCityByGeo" name="lblCityByGeo">Fremont, CA</label> &nbsp;</label>&nbsp;<label id="lblLatLong" name="lblLatLong">[37.55678816200741 , -121.96859231020544]</label> <br />
+                <label id="lblGeoName" name="lblGeoName">Current Location: &nbsp; <label id="lblCityByGeo" name="lblCityByGeo">Bigmont, CA</label> &nbsp;</label>&nbsp;<label id="lblLatLong" name="lblLatLong">[00.00000000000000 , -000.00000000000000]</label> <br />
                 <label id="lblSearchHistory" name="lblSearchHistory">Recent Searches: </label>&nbsp;<label id="lblRecentSearches" name="lblRecentSearches"></label>
                 <hr />
             </div>
             <div>
                 <hr />
                 <label id="lblWeatherForecast" name="lblLatLong">Weather Forecast for </label> &nbsp; <label id="lblWeatherForecastCity" name="lblWeatherForecastCity"></label>
-                <hr />
+                <hr />  
             </div>
             <div class="container">
                 <div id='loadingmsgOne' style='display:none'>
